@@ -1,0 +1,14 @@
+ul{
+    padding-inline-start: 0px; 
+}
+
+li {
+    border-bottom: 1px solid lightgrey  ; 
+    padding: 0.25em; 
+    list-style: none;
+    background-color: white;    
+}
+
+li button {
+    float: right;
+}
