@@ -8,11 +8,13 @@ import { ClientApiService } from '../client-api.service';
   standalone: true,
   imports: [CommonModule],
   template: `
+  <!-- En tu template HTML -->
   <ul>
-    <li *ngFor="let item of items">
-      <span>{{item.nombre}}</span>
+    <li *ngFor="let item of items" (click)="toggleCompra(item)">
+      <span [class.tachado]="item.comprado">{{ item.nombre }}</span>
     </li>
   </ul>
+
   `,
   styleUrl: './lista-compra.component.css'
 })
@@ -24,5 +26,8 @@ export class ListaCompraComponent {
     this.api.getItems().then((items: Item[]) => {
       this.items = items
     });
+  }
+  toggleCompra(item: Item): void {
+    item.comprado = !item.comprado;
   }
 }

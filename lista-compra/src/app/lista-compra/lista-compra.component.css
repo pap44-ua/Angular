@@ -12,3 +12,9 @@ li {
 li button {
     float: right;
 }
+
+
+.tachado {
+    text-decoration: line-through;
+  }
+  
