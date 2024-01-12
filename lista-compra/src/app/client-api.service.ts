@@ -64,4 +64,21 @@ export class ClientApiService {
           return false
       }
   }
+
+  async editItem(id: number, nom: string, comp: boolean): Promise<boolean> {
+        var datos = JSON.stringify({nombre:nom, comprado:comp})
+        var resp = await fetch(this.API_URL+'/'+id,{
+            method:'PATCH',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: datos
+        })
+        if (resp.ok) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
 }
